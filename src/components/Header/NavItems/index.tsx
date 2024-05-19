@@ -10,9 +10,8 @@ import * as TsSvgs from '@/TsSvgs'
 import { usePathname } from 'next/navigation'
 import { addClassNames } from "@/utils/functions";
 import MobileSearchBar from "../MobileSearchBar";
+import Divider from "@/components/UI/Divider";
 
-
-const Divider = ({ classes }) => <div className={addClassNames("h-[1px] w-full bg-black", classes)} />
 
 const NavigationItems = (props) => {
     const pathname = usePathname()
@@ -64,7 +63,7 @@ const NavigationItems = (props) => {
         },
         {
             name: "Sign In/Join",
-            link: "/",
+            link: "#",
             icon: (props) => <TsSvgs.UserIcon {...props} />,
         },
     ];
