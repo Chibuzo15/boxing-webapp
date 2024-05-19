@@ -1,0 +1,74 @@
+/* @import '../../vars.css'; */
+
+.Header {
+  box-sizing: border-box;
+  /* background-color:var(--light-bg-color); */
+  overflow: hidden;
+}
+
+.Header-dark {
+  /* background-color: var(--dark-bg-color); */
+}
+
+.MobileTopBar {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+  margin-right: 20px;
+  margin-left: 20px;
+  box-sizing: border-box;
+  height: 80px;
+  align-items: center;
+}
+
+.Drawer {
+  align-self: center;
+}
+
+.mobile-logo {
+  /* width: 80%; */
+  text-align: center;
+  max-width: 70%;
+}
+
+.AccountBar {
+  width: 20%;
+  margin: auto;
+}
+
+.MenuItemsWrapper img {
+  display: none;
+}
+
+@media (min-width: 500px) {
+  .main-logo {
+    width: 200px;
+  }
+
+  .MenuItemsWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 25px;
+    margin-right: 25px;
+    min-height: 120px;
+  }
+
+  .MenuItemsWrapper img {
+    display: block;
+  }
+
+  .MobileTopBar {
+    display: none;
+  }
+}
+
+@media (min-width: 1920px) {
+  .main-logo {
+    width: 300px;
+  }
+
+  .MenuItemsWrapper {
+    min-height: 160px;
+  }
+}
