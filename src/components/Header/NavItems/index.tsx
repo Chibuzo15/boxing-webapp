@@ -8,7 +8,11 @@ import Link from "next/link";
 import * as TsSvgs from '@/TsSvgs'
 
 import { usePathname } from 'next/navigation'
+import { addClassNames } from "@/utils/functions";
+import MobileSearchBar from "../MobileSearchBar";
 
+
+const Divider = ({ classes }) => <div className={addClassNames("h-[1px] w-full bg-black", classes)} />
 
 const NavigationItems = (props) => {
     const pathname = usePathname()
@@ -26,86 +30,102 @@ const NavigationItems = (props) => {
         {
             name: "Features",
             link: "/features",
-            icon: (props) => <TsSvgs.FeaturesIcon />,
+            icon: (props) => <TsSvgs.FeaturesIcon {...props} />,
         },
         {
             name: "Schedule",
             link: "/schedule",
-            icon: (props) => <TsSvgs.ForumIcon />,
+            icon: (props) => <TsSvgs.ForumIcon {...props} />,
         },
         {
             name: "Results",
             link: "/results",
-            icon: (props) => <TsSvgs.ResultsIcon />,
+            icon: (props) => <TsSvgs.ResultsIcon {...props} />,
         },
         {
             name: "Rankings",
             link: "/rankings",
-            icon: (props) => <TsSvgs.RankingsIcon />,
+            icon: (props) => <TsSvgs.RankingsIcon {...props} />,
         },
         {
             name: "Videos",
             link: "/videos",
-            icon: (props) => <TsSvgs.VideosIcon />,
+            icon: (props) => <TsSvgs.VideosIcon {...props} />,
         },
         {
             name: "Forum",
             link: "/forum",
-            icon: (props) => <TsSvgs.ForumIcon />,
+            icon: (props) => <TsSvgs.ForumIcon {...props} />,
         },
         {
             name: "Search",
             link: "/search",
-            icon: (props) => <TsSvgs.SearchIcon />,
+            icon: (props) => <TsSvgs.SearchIcon {...props} />,
         },
         {
             name: "Sign In/Join",
             link: "/",
-            icon: (props) => <TsSvgs.UserIcon />,
+            icon: (props) => <TsSvgs.UserIcon {...props} />,
         },
     ];
 
     //Navigation items array
     let NavigationItems = NavigationItemsARR.map((nav) => {
         const Icon = nav.icon
+        const isActive = nav.link == pathname
+
         return (
-            <li onClick={props.clicked} key={nav.name}>
+            <Link
+                href={nav.link}
+                key={nav.name}
+            >
                 <div className="flex flex-col items-center uppercase">
-                    <Icon />
-                    <Link
-                        href={nav.link}
-                        className="text-[14px] font-[500]"
-                    >
+                    <Icon
+                        stroke={isActive ? 'red' : 'black'}
+                    />
+                    <div className="text-[14px] font-[500]">
                         {nav.name}
-                    </Link>
+                    </div>
                 </div>
-            </li>
+            </Link>
         );
     });
 
     const renderMobileList = () => {
-        const items = NavigationItemsARR;
+        const items = NavigationItemsARR?.filter((nav) => nav?.name?.toLowerCase() != 'search');
 
         return (
-            <ul>
+            <div>
+                <MobileSearchBar />
+
                 {items.map((nav, index) => {
                     const Icon = nav.icon
+                    const isActive = nav.link == pathname
                     return (
-
-                        <li onClick={props.clicked} key={nav.name}>
-                            <Link
-                                href={nav.link}
-                                className="text-[14px] font-[500]"
-                            >
-                                <div>
-                                    <Icon />
+                        <Link
+                            href={nav.link}
+                            key={nav.name}
+                            className=" mb-[32px]  min-h-[30px] flex flex-col justify-center"
+                        >
+                            {/* <li onClick={props.clicked} > */}
+                            {nav.name.includes('Join') ? <Divider classes={'mb-[32px]'} /> : undefined}
+                            <div className="flex space-x-[24px] pl-[25px]">
+                                <div className="">
+                                    <Icon
+                                        stroke={isActive ? 'red' : 'black'}
+                                    />
                                 </div>
-                                {nav.name}
-                            </Link>
-                        </li>
+                                <div className="text-[14px] font-[500] uppercase">
+                                    {nav.name}
+                                </div>
+                            </div>
+                            {/* </li> */}
+                            {nav.name.includes('Join') ? <Divider classes={'mt-[32px]'} /> : undefined}
+
+                        </Link>
                     );
                 })}
-            </ul>
+            </div>
         );
     };
 
@@ -117,7 +137,7 @@ const NavigationItems = (props) => {
                     display: "flex",
                     flexDirection: "column",
                 }}
-                className='bg-white pl-[25px]'
+                className='bg-white '
             >
                 <div style={{ flex: 0.7 }}>{renderMobileList()}</div>
                 <div
@@ -136,11 +156,11 @@ const NavigationItems = (props) => {
 
     return (
         <div>
-            <ul
+            <div
                 className={`${classes["NavigationItems"]} space-x-[8px]`}
             >
                 {NavigationItems}
-            </ul>
+            </div>
 
             <div className={mobileClasses.join(" ")}>{renderMobileMenu()}</div>
         </div>

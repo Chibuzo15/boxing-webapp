@@ -17,7 +17,7 @@
 }
 
 body {
-  font-family: Roboto, sans-serif;
+  /* font-family: Roboto, sans-serif; */
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -31,4 +31,8 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+*{
+  outline:none
 }

@@ -3,10 +3,15 @@ import Footer from "@/components/Footer";
 
 import { addClassNames } from "@/utils/functions";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const robotoFont = Roboto({
+  subsets: ['latin'], // Specify character subsets (optional)
+  weight: ['400', '500', '700'], // Include different weights if needed
+});
 
 export const metadata: Metadata = {
   title: "Boxing News, Interviews, Results and Videos - Boxing site",
@@ -21,7 +26,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={
-        'bg-white min-h-screen flex flex-col justify-between'
+        addClassNames(
+          'bg-white min-h-screen flex flex-col justify-between',
+          robotoFont.className
+        )
       }>
         <Header />
         {children}

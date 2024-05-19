@@ -6,7 +6,7 @@ const SvgComponent = (props: SVGProps<SVGSVGElement>) => (
         width={24}
         height={24}
         fill="none"
-        stroke="currentColor"
+        stroke="red"
         strokeLinecap="round"
         strokeLinejoin="round"
         strokeWidth={2}
