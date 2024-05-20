@@ -8,7 +8,7 @@ import Divider from "@/components/UI/Divider";
 import Image from "next/image";
 
 import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+// import "react-multi-carousel/lib/styles.css";
 
 import { addClassNames } from "@/utils/functions";
 import NewsFeed from "@/components/NewsFeed";
@@ -73,63 +73,77 @@ export default function Home() {
         >
           <div className="text-[red] uppercase text-[18px] font-bold">photos</div>
 
-          {/* <Carousel
-            responsive={responsiveCarousel}
-            ssr={true} // means to render carousel on server-side.
-            infinite={true}
-            autoPlaySpeed={1000}
-            keyBoardControl={true}
-            arrows={false}
-            customTransition="all .5"
-            transitionDuration={500}
-            containerClass="w-full"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-          >
-            {
-              dummyBlogPosts.map((post, index) => {
-                return <PostGridItem
-                  key={index}
-                  {...post}
-                  type="photo"
-                />
-              })
-            }
-          </Carousel> */}
+          <div
+            style={{
+              width: 'calc( 100vw - 35px )'
+            }}
+            className="relative">
+            <Carousel
+              responsive={responsiveCarousel}
+              centerMode={true}
+              autoPlaySpeed={1000}
+              keyBoardControl={true}
+              arrows={true}
+              customTransition="all .5"
+              transitionDuration={500}
+              containerClass="w-full"
+              itemClass={"!w-[230px] mr-[10px]"}
+              removeArrowOnDeviceType={["tablet", "mobile"]}
+            >
+              {
+                dummyBlogPosts.map((post, index) => {
+                  return <PostGridItem
+                    key={index}
+                    {...post}
+                    type="photo"
+                  />
+                })
+              }
+            </Carousel>
+          </div>
 
 
         </div>
         <Divider />
         <div
           className="p-[12px]"
+
         >
           <div className="text-[red] uppercase text-[18px] font-bold">videos</div>
-          {/* <Carousel
-            responsive={responsiveCarousel}
-            ssr={true} // means to render carousel on server-side.
-            infinite={true}
-            autoPlaySpeed={1000}
-            arrows={false}
-            keyBoardControl={true}
-            customTransition="all .5"
-            transitionDuration={500}
-            containerClass="w-full"
-            removeArrowOnDeviceType={["tablet", "mobile"]}
-          >
-            {
-              dummyBlogPosts.map((post, index) => {
-                return <PostGridItem
-                  key={index}
-                  {...post}
-                  type="video"
-                />
-              })
-            }
-          </Carousel> */}
+          <div
+            style={{
+              width: 'calc( 100vw - 35px )'
+            }}
+            className="relative ">
+            <Carousel
+              responsive={responsiveCarousel}
+              centerMode={true}
+              autoPlaySpeed={1000}
+              keyBoardControl={true}
+              arrows={true}
+              customTransition="all .5"
+              transitionDuration={500}
+              containerClass="w-full"
+              itemClass={"!w-[230px] mr-[10px]"}
+              removeArrowOnDeviceType={["tablet", "mobile"]}
+            >
+              {
+                dummyBlogPosts.map((post, index) => {
+                  return <PostGridItem
+                    key={index}
+                    {...post}
+                    type="video"
+                  />
+                })
+              }
+            </Carousel>
+          </div>
+
         </div>
         <Divider />
         <Divider />
 
       </div>
-    </main>
+    </main >
   );
 }

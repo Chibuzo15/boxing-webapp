@@ -6,6 +6,8 @@ import type { Metadata } from "next";
 import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 
+import "react-multi-carousel/lib/styles.css";
+
 const inter = Inter({ subsets: ["latin"] });
 
 const robotoFont = Roboto({
