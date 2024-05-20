@@ -12,6 +12,7 @@ const Featured = props => {
                 <Image
                     src={'/images/boxingDetailImg.jpeg'}
                     fill
+                    alt="featured home image"
                 />
             </div>
             <div className="w-full md:w-1/2 p-[12px]">

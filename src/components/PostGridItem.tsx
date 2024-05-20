@@ -35,6 +35,7 @@ const PostGridItem = (props: PostGridItemProps) => {
                 <Image
                     src={'/images/blogImage2.jpeg'}
                     fill
+                    alt="post grid image"
                 />
                 {renderPlayIcon()}
             </div>

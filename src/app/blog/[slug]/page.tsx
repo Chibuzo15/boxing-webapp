@@ -48,7 +48,9 @@ export default function Page() {
     return (
       <div >
         <div className="w-full h-[350px] relative">
-          <Image src={"/images/boxingDetailImg.jpeg"} fill />
+          <Image
+            alt="blog image"
+            src={"/images/boxingDetailImg.jpeg"} fill />
         </div>
         <div className="mt-3">
           <div>
