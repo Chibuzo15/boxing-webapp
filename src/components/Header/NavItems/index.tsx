@@ -16,8 +16,6 @@ import Divider from "@/components/UI/Divider";
 const NavigationItems = (props) => {
     const pathname = usePathname()
 
-    console.log('pathname ', pathname)
-
     // ...
     let mobileClasses = [classes["NavigationItemsMobile"], classes["Close"]];
 
@@ -156,7 +154,7 @@ const NavigationItems = (props) => {
     return (
         <div>
             <div
-                className={`${classes["NavigationItems"]} space-x-[8px]`}
+                className={`${classes["NavigationItems"]} space-x-[16px]`}
             >
                 {NavigationItems}
             </div>

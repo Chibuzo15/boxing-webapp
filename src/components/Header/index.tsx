@@ -8,6 +8,7 @@ import Hamburger from '../Hamburger';
 
 import Logo from '../Logo'
 import { addClassNames } from '@/utils/functions';
+import Divider from '../UI/Divider';
 
 const Header = () => {
     const [menuVisible, setMenuVisible] = React.useState(false)
@@ -17,7 +18,7 @@ const Header = () => {
     }
 
     return (
-        <header className={`${classes['Header']}`}>
+        <header className={`${classes['Header']} fixed top-0 right-0 left-0 bg-white z-[1000]`}>
             {/* mobile menu */}
             <div className={`${classes['MobileTopBar']} relative`}>
                 <span className={classes.Drawer}>
@@ -50,6 +51,7 @@ const Header = () => {
                     showMobile={menuVisible}
                 />
             </div>
+            <Divider />
         </header>
     )
 }

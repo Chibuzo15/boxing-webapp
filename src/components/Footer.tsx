@@ -52,7 +52,7 @@ const Footer = () => {
     ]
 
     return <footer
-        className="pb-3"
+        className="pb-6 w-full"
     >
         <Divider />
 
@@ -62,14 +62,14 @@ const Footer = () => {
             <div className='w-full md:w-[25%]'>
                 {/* mobile view */}
                 <div className=' md:hidden'>
-                    <Accordion>
+                    <Accordion elevation={0}>
                         <AccordionSummary
                             expandIcon={<IoChevronDownSharp />
                             }
                         >
                             <div className='uppercase underline font-bold'>legal</div>
                         </AccordionSummary>
-                        <AccordionDetails>
+                        <AccordionDetails >
                             {
                                 legalColumn?.map((item, index) => {
                                     return (
@@ -90,20 +90,22 @@ const Footer = () => {
                 {/* large screen */}
                 <div className='hidden md:block'>
                     <div className='uppercase underline font-bold'>legal</div>
-                    {
-                        legalColumn?.map((item, index) => {
-                            return (
-                                <Link
-                                    key={index}
-                                    href={item.link}
-                                >
-                                    <div className='text-[#a7a7a7] font-bold'>
-                                        {item.title}
-                                    </div>
-                                </Link>
-                            )
-                        })
-                    }
+                    <div className='space-y-[4px]'>
+                        {
+                            legalColumn?.map((item, index) => {
+                                return (
+                                    <Link
+                                        key={index}
+                                        href={item.link}
+                                    >
+                                        <div className='text-[#a7a7a7] font-bold'>
+                                            {item.title}
+                                        </div>
+                                    </Link>
+                                )
+                            })
+                        }
+                    </div>
                 </div>
             </div>
 
@@ -111,7 +113,7 @@ const Footer = () => {
             <div className='w-full md:w-[25%]'>
                 {/* mobile view */}
                 <div className=' md:hidden'>
-                    <Accordion>
+                    <Accordion elevation={0}>
                         <AccordionSummary
                             expandIcon={<IoChevronDownSharp />
                             }
@@ -119,20 +121,22 @@ const Footer = () => {
                             <div className='uppercase underline font-bold'>get in touch</div>
                         </AccordionSummary>
                         <AccordionDetails>
-                            {
-                                inTouchColumn?.map((item, index) => {
-                                    return (
-                                        <Link
-                                            key={index}
-                                            href={item.link}
-                                        >
-                                            <div className='text-[#a7a7a7] font-bold'>
-                                                {item.title}
-                                            </div>
-                                        </Link>
-                                    )
-                                })
-                            }
+                            <div className="space-y-[5px] flex flex-col">
+                                {
+                                    inTouchColumn?.map((item, index) => {
+                                        return (
+                                            <Link
+                                                key={index}
+                                                href={item.link}
+                                            >
+                                                <div className='text-[#a7a7a7] font-bold'>
+                                                    {item.title}
+                                                </div>
+                                            </Link>
+                                        )
+                                    })
+                                }
+                            </div>
                         </AccordionDetails>
                     </Accordion>
                 </div>
@@ -161,7 +165,7 @@ const Footer = () => {
                 <div>
                     {/* mobile view */}
                     <div className=' md:hidden'>
-                        <Accordion>
+                        <Accordion elevation={0}>
                             <AccordionSummary
                                 expandIcon={<IoChevronDownSharp />
                                 }

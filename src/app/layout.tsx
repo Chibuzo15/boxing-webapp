@@ -27,8 +27,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={
         addClassNames(
-          'bg-white min-h-screen flex flex-col justify-between',
-          robotoFont.className
+          'bg-white min-h-screen flex flex-col justify-between items-center',
+          robotoFont.className,
+          //
+          'mt-[60px] sm:mt-[120px]'
         )
       }>
         <Header />

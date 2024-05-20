@@ -13,6 +13,8 @@ import Divider from "@/components/UI/Divider";
 import { addClassNames } from "@/utils/functions";
 
 import { Bitter } from "next/font/google";
+import NewsFeed from "@/components/NewsFeed";
+import TrendingTopics from "@/components/Trending";
 
 
 const tags = [
@@ -161,7 +163,7 @@ export default function Page() {
   }
 
   return (
-    <div>
+    <main className=" max-w-[1100px]">
       <div className="flex flex-wrap md:flex-nowrap m-[12px]">
         <div className="w-full md:w-[60%] p-[12px]">
           <div
@@ -194,11 +196,13 @@ export default function Page() {
           {renderCommentsStats()}
           {renderTags()}
           {renderComments()}
+          <NewsFeed />
         </div>
         <div className="w-full md:w-[40%] p-[12px]">
-          <div className="uppercase font-bold text-[20px] text-[red] pt-[12px]">Trending Topics</div>
+          <Divider />
+          <TrendingTopics />
         </div>
       </div>
-    </div>
+    </main>
   );
 }
