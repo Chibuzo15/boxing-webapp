@@ -1,0 +1,41 @@
+.slant-label{
+    align-self: center;
+    background-color: #f02;
+    color: #fff;
+    display: inline-block;
+    font-family: Roboto,sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: .25rem 0;
+    min-width: 66px;
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.slant-label:after, .slant-label:before {
+    border-style: solid;
+    content: "";
+    height: 0;
+    position: absolute;
+    top: 0;
+    transform: rotate(1turn);
+    width: 0;
+}
+
+.slant-label:before {
+    border-color: #fff transparent transparent;
+    border-width: 21px 16px 0 0;
+    left: 0;
+}
+
+.slant-label:after, .slant-label:before {
+    border-style: solid;
+    content: "";
+    height: 0;
+    position: absolute;
+    top: 0;
+    transform: rotate(1turn);
+    width: 0;
+}
