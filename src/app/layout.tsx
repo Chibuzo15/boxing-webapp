@@ -7,6 +7,7 @@ import { Inter, Roboto } from "next/font/google";
 import "./globals.css";
 
 import "react-multi-carousel/lib/styles.css";
+import StoreProvider from "@/StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,20 +27,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={
-        addClassNames(
-          'bg-white min-h-screen flex flex-col justify-between items-center',
-          robotoFont.className,
-          //
-          'mt-[60px] sm:mt-[120px]'
-        )
-      }>
-        <Header />
-        {children}
-        <Footer />
-      </body>
+    <StoreProvider>
+      <html lang="en">
+        <body className={
+          addClassNames(
+            'bg-white min-h-screen flex flex-col justify-between items-center',
+            robotoFont.className,
+            //
+            'mt-[60px] sm:mt-[120px]'
+          )
+        }>
+          <Header />
+          {children}
+          <Footer />
+        </body>
 
-    </html>
+      </html>
+    </StoreProvider>
   );
 }
